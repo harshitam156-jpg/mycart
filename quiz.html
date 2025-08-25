@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="quiz.css">
+  <link rel="stylesheet" href="b4css/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="b4css/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="b4css/css/aos.css" />
+  <link rel="stylesheet" href="b4css/css/style.css" />
+  <link rel="stylesheet" href="b4icon/icofont/icofont.min.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <script>
+    $(document).ready(function () {
+      // click event of next button
+      var i = 1;
+      $("#b2").click(function () {
+        $("#btn" + i).css("background", "orange");
+        $("#form" + i).css("display", "none");
+        i++;
+        $("#btn" + i).css("background", "green");
+        $("#form" + i).css("display", "block");
+        if (i >= 9) {
+          i = 9;
+          $("#form" + i).css("display", "block");
+          alert("No more Question are avialble");
+        }
+      });
+      // click event of previous button
+      $("#b1").click(function () {
+        $("#btn" + i).css("background", "orange");
+        $("#form" + i).css("display", "none");
+        i--;
+        $("#btn" + i).css("background", "green");
+        $("#form" + i).css("display", "block");
+        if (i <= 9) {
+          i = 9;
+          $("#form" + i).css("display", "block");
+          alert("Now more Question are available");
+        }
+      });
+      // click event of button 
+      $(".btncolor").click(function () {
+        var n = parseInt($(this).text().trim());
+        // alert(n);
+        for (var j = 1; j <= 9; j++) {
+          if (j == n) {
+            $("#form" + i).css("display", "block");
+            $(this).css("background", "green");
+            i = j;
+          }
+          else {
+            $("#btn" + j).css("background", "orange");
+            $("#form" + j).css("display", "none");
+          }
+        }
+      });
+
+    });
+
+
+
+  </script>
+  <script>
+    // timer code start
+
+    function f2(i) {
+      if (i < 10) {
+        return "0" + i;
+      }
+      return i;
+    }
+
+    function f1() {
+      var h = 0, m = 0, s = 0;
+      var timer = setInterval(function () {
+        s++;
+        if (s >= 60) {
+          s = 0;
+          m++;
+        }
+        if (m >= 60) {
+          s = 0;
+          m = 0;
+          h++;
+        }
+        if (h >= 12) {
+          h = 0;
+          m = 0;
+          s = 0;
+        }
+        $("#hh").text(f2(h));
+        $("#mm").text(f2(m));
+        $("#ss").text(f2(s));
+
+        // Logout
+        if (m >= 2) {
+          clearInterval(timer);
+          alert("Now time is over");
+          rightans();
+        }
+
+      }, 1000);
+    }
+    // timer code end
+
+  </script>
+  <!-- paper hide-->
+  <script>
+    $(document).ready(function () {
+      $("#st").click(function () {
+        $("#section2").css("display", "none");
+        $("#lab6").css("display", "block");
+      })
+    });
+  </script>
+  <script>
+    // to check question answer
+    var q1 = 0, q2 = 0, q3 = 0, q4 = 0, q5 = 0, q6 = 0, q7 = 0, q8 = 0, q9 = 0;
+    var status;
+    function fun1(x) {
+      if (x.value == 'c') {
+        status = true;
+        q1 = 1;
+      }
+      else {
+        status = false;
+        q1 = 0;
+      }
+    }
+    // second question
+
+    function fun2(x) {
+      if (x.value == 'c') {
+        status = true;
+        q2 = 1;
+      }
+      else {
+        status = false;
+        q2 = 0;
+      }
+    }
+    // third question 
+    function f3(x) {
+      if (x.value == 'c') {
+        status = true;
+        q3 = 1;
+      }
+      else {
+        status = false;
+        q3 = 0;
+      }
+    }
+
+    // fourth question
+
+    function f4(x) {
+      if (x.value == 'c') {
+        status = true;
+        q4 = 1;
+      }
+      else {
+        status = false;
+        q4 = 0;
+      }
+    }
+    // fifth question 
+    function f5(x) {
+      if (x.value == 'c') {
+        status = true;
+        q5 = 1;
+      }
+      else {
+        status = false;
+        q5 = 0;
+      }
+    }
+
+    // sixth question
+
+    function f6(x) {
+      if (x.value == 'c') {
+        status = true;
+        q6 = 1;
+      }
+      else {
+        status = false;
+        q6 = 0;
+      }
+    }
+    // seventh question 
+    function f7(x) {
+      if (x.value == 'c') {
+        status = true;
+        q7 = 1;
+      }
+      else {
+        status = false;
+        q7 = 0;
+      }
+    }
+
+    // eight question
+
+    function f8(x) {
+      if (x.value == 'c') {
+        status = true;
+        q8 = 1;
+      }
+      else {
+        status = false;
+        q8 = 0;
+      }
+    }
+    // ninth question 
+    function f9(x) {
+      if (x.value == 'c') {
+        status = true;
+        q9 = 1;
+      }
+      else {
+        status = false;
+        q9 = 0;
+      }
+    }
+
+    function rightans() {
+      var total = 0;
+      total = total + q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9;
+      if (total >= 5) {
+        alert("Conguratulaion ! you get total " + total + " marks into this quiz");
+        window.location.href = "quiz.html";
+      }
+      else {
+        alert("You are Failed and you get  " + total + " marks into this quiz");
+        window.location.href = "quiz.html";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header style="background-color: rgba(24, 23, 23, 0.781);">
+
+    <div class="container-fluid d-flex">
+      <h1 class="logo mr  " style="margin:4px 5px 5px 30px">
+        <img src=" images/a13.png " style="height: 70px; width: auto;">
+      </h1>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul style="padding: 15px 5px 5px 20px;">
+          <li><a href="index.html"
+              style="font-size: 20px; font-family: sans-serif;color:   yellowgreen;  text-decoration: none; margin-left: 100px;">Home</a>
+          </li>
+
+          <li><a href="cart.html"
+              style="font-size: 20px; font-family: sans-serif; color:  yellowgreen; text-decoration: none; margin-left: 40px;">Card
+              Management</a>
+          </li>
+          <li><a href="quiz.html"
+              style="font-size: 20px; font-family: sans-serif; color:  yellowgreen;  text-decoration: none; margin-left: 40px;">Test
+              Management</a>
+          </li>
+
+          <li><a href="form.html"
+              style="font-size: 20px; font-family: sans-serif; color:  yellowgreen;  text-decoration: none; margin-left: 40px;">Validations</a>
+          </li>
+
+          <button
+            style="height: 50px; width: 150px; border:none; background:linear-gradient(to right,#fc8106,#f8bd50);margin-left: 200px;color:white;font-size: 16px; font-weight: 500;">Contact
+            US</button>
+
+
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="container-fluid main1">
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8 main2">
+        <div class="row">
+          <div class="col-sm-4 main3">
+            <div class="lab">
+              <p>The Coding Lab</p>
+            </div>
+            <div class="lab2">
+              <p class="a1">Questions:</p>
+
+              <button class="btncolor" id="btn1">1</button>
+              <button class="btncolor" id="btn2">2</button>
+              <button class="btncolor" id="btn3">3</button>
+              <button class="btncolor" id="btn4">4</button>
+              <button class="btncolor" id="btn5">5</button>
+              <button class="btncolor" id="btn6">6</button>
+              <button class="btncolor" id="btn7">7</button>
+              <button class="btncolor" id="btn8">8</button>
+              <button class="btncolor" id="btn9">9</button>
+            </div>
+
+            <div class="lab3">
+              <p class="a1">Summary:</p>
+              <input type="text" id="" class="form-control inputch" readonly="true">
+              <input type="text" id="" class="form-control inputch" readonly="true">
+              <input type="text" id="" class="form-control inputch" readonly="true">
+            </div>
+            <div class="lab4">
+              <p>Time Left:</p>
+              <div class="s1">
+                <span id="hh" style="color:blue;font-size: 30px;">00</span> :
+                <span id="mm" style="color:green;font-size: 30px;">00</span> :
+                <span id="ss" style="color:red;font-size: 30px;">00</span>
+              </div>
+            </div>
+            <div class="lab5">
+              <button class="btn btn-success btn-lg" id="submit" onclick="rightans()">Submit</button>
+
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <div id="lab6" style="display: none;">
+              <form action="#" method="post" id="form1">
+                <p>Q.1 &nbsp Which of the following is a planet ?</p>
+
+                <label>
+                  <input type="radio" name="q1" value="w" onchange="fun1(this)"> &nbsp; Sun
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q1" value="w" onchange="fun1(this)"> &nbsp; Moon
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q1" value="c" onchange="fun1(this)"> &nbsp; Earth
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q1" value="w" onchange="fun1(this)"> &nbsp; Halley
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form2" style="display: none;">
+                <p>Q.2 &nbsp What is the primary goal of Data Science ?</p>
+                <label>
+                  <input type="radio" name="q2" value="w" onchange="fun2(this)"> &nbsp; Data Visualization
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q2" value="w" onchange="fun2(this)"> &nbsp; Data Cleaning
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q2" value="c" onchange="fun2(this)"> &nbsp; Predictive Analytics
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q2" value="w" onchange="fun2(this)"> &nbsp; Extracting Data from APIs
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form3" style="display: none;">
+                <p>Q.3 &nbsp Which programing language is commonly used for Data Science task ?</p>
+
+                <label>
+                  <input type="radio" name="q3" value="w" onchange="f3(this)"> &nbsp; Java
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q3" value="c" onchange="f3(this)"> &nbsp; Python
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q3" value="w" onchange="f3(this)"> &nbsp; C++
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q3" value="w" onchange="f3(this)"> &nbsp; JavaScript
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form4" style="display: none;">
+                <p>Q.4 &nbsp What is the term for a data point that falls far from the rest of the data in a dataset ?
+                </p>
+                <label>
+                  <input type="radio" name="q4" value="w" onchange="f4(this)"> &nbsp; Outlier
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q4" value="w" onchange="f4(this)"> &nbsp; Median
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q4" value="w" onchange="f4(this)"> &nbsp; Mean
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q4" value="c" onchange="f4(this)"> &nbsp; Variance
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form5" style="display: none;">
+                <p>Q.5 &nbsp What does the acronym "EDA" stand for in Data Science ?</p>
+
+                <label>
+                  <input type="radio" name="q5" value="w" onchange="f5(this)"> &nbsp; Exploratory Data Analysis
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q5" value="c" onchange="f5(this)"> &nbsp; Effective Data Algorithms
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q5" value="w" onchange="f5(this)"> &nbsp; Extracted Data Aggregation
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q5" value="w" onchange="f5(this)"> &nbsp; Efficient Data Assessment
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form6" style="display: none;">
+                <p>Q.6 &nbsp Which of the following is NOT a key skill required for a Data Scientist?</p>
+
+                <label>
+                  <input type="radio" name="q6" value="c" onchange="f6(this)"> &nbsp; Data Visualization
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q6" value="w" onchange="f6(this)"> &nbsp; Storytelling
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q6" value="w" onchange="f6(this)"> &nbsp; Database Administration
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q6" value="w" onchange="f6(this)"> &nbsp; Machine Learning
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form7" style="display: none;">
+                <p>Q.7 &nbsp What is the primary focus of Data Science ?</p>
+
+                <label>
+                  <input type="radio" name="q7" value="w" onchange="f7(this)"> &nbsp; Data Cleaning
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q7" value="c" onchange="f7(this)"> &nbsp; Data Visualization
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q7" value="w" onchange="f7(this)"> &nbsp; Data Analysis
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q7" value="w" onchange="f7(this)"> &nbsp; Data Storage
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form8" style="display: none;">
+                <p>Q.8 &nbsp What is the process of extracting parttens and inforamation from the data called ?</p>
+
+                <label>
+                  <input type="radio" name="q8" value="c" onchange="f8(this)"> &nbsp; Data Wrangling
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q8" value="w" onchange="f8(this)"> &nbsp; Data Visualization
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q8" value="w" onchange="f8(this)"> &nbsp; Data Engineering
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q8" value="w" onchange="f8(this)"> &nbsp; Data Mining
+                </label>
+              </form>
+
+              <form action="#" method="post" id="form9" style="display: none;">
+                <p>Q.9 &nbsp In Data Science, what is the purpose of feature Engineering ?</p>
+
+                <label>
+                  <input type="radio" name="q9" value="w" onchange="f9(this)"> &nbsp; To extract features from data
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q9" value="w" onchange="f9(this)"> &nbsp; To visualize data features
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q9" value="c" onchange="f9(this)"> &nbsp; To clean data features
+                </label>
+                <br>
+                <label>
+                  <input type="radio" name="q9" value="w" onchange="f9(this)"> &nbsp; To model data features
+                </label>
+              </form>
+              <!-- button-->
+              <br><br>
+              <div class="btnp">
+                <button class="btn btn-danger btn-lg" id="b1">Previous</button>
+                <button class="btn btn-success btn-lg" id="b2" style="margin-left: 15px;">Next</button>
+              </div>
+            </div>
+            <!-- Introduction and rule of paper-->
+            <div id="section2">
+              <p id="pp1">Online Test Instructions for Students</p>
+              <p id="pp4">Allow Timing : 60 minutes</p>
+              <p id="pp2">General Instructions </p>
+              <p id="pp3">
+                Exam will be for 90 marks.<br>
+                9 questions will be asked, Student can attempt all. Maximum 5 correct answers will be
+                considered.<br>
+                Scored marks out of 50 will be converted as out of 80 marks.<br>
+                There is no negative marking for wrong answer.
+              </p>
+
+              <p id="pp2">DO’s & Don’t </p>
+              <p id="pp3">
+                No breaks allowed during test. Session may get terminated on grounds of idle time.<br>
+                No one other than student should be present.<br>
+                Students have to agree for recording the test session for monitoring purpose.<br>
+
+              </p>
+              <div class="btnpp">
+                <!-- paper buttton-->
+                <button class="btn btn-danger btn-lg" onclick="f1()" id="st">Start Paper</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-2"></div>
+
+        </div>
+      </div>
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="b4js/js/jquery.min.js"></script>
+      <script src="b4js/js/jquery.waypoints.min.js"></script>
+      <script src="b4js/js/counterup.min.js"></script>
+      <script src="b4js/js/owl.carousel.min.js"></script>
+      <script src="b4js/js/aos.js"></script>
+      <script src="b4js/js/main.js"></script>
+</body>
+
+</html>

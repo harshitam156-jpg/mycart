@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        function products() {
+            
+           var arr=[{pname:"desktop computer",price:18000,dprice:15000,pic:"comp.jpg"},
+            {pname:"mobile Phone",price:20000,dprice:19000,pic:"mob.jpg"},
+        {pname:"Women Clothe",price:18000,dprice:15000,pic:"women.jpg"},
+    {pname:"Men Clothe",price:15000,dprice:14000,pic:"men.jpg"},
+{pname:"HeadPhone",price:20000,dprice:19000,pic:"head.jpg"},
+{pname:"accesseris",price:20000,dprice:19000,pic:"acc.jpg"}];
+            var txt=""
+
+            for (var i=0;i<arr.length;i++)
+        {
+            
+            txt=txt+"<div class='card' style='width: 18rem; float:left;margin:2%'>  <img src='../img/"+arr[i].pic+"'id='img"+(i+1)+"' class='card-img-top' alt='...' style='height:200px'><div class='card-body'><h5 class='card-title' id='pn"+(i+1)+"'>"+arr[i].pname+"</h5><p class='card-text'><span style='font-size: 30px;color:red;text-decoration:line-through;' id='pr"+(i+1)+"'>"+arr[i].price+"</span><span style='font-size: 30px;float:right;' id='dp"+(i+1)+"'>"+arr[i].dprice+"</span></p> <button class='btn btn-danger' data-id='btn"+(i+1)+"'>Add to Cart</button>  </div></div>"
+        }
+        $("#p").html(txt);
+        }
+        $(document).ready(function(){
+            products();
+        })
+    </script>
+    <script>
+        $(document).ready(function(){
+                            var i=0;
+                            var arrn=[];
+                var arrpic=[];
+                var arrprice=[];
+                var arrdprice=[];
+            $("button").click(function(){
+                var t=$(this).text();
+                var data=$(this).attr("data-id");
+                var n=data.substring(data.lastIndexOf('n')+1);
+                // alert(n);                
+                if(t=="Add to Cart")
+            {
+                i++;
+                $(this).text("Remove to Cart");
+                $(this).removeClass("btn btn-danger");
+                $(this).addClass("btn btn-success");
+                swal({title: "Product Added Successfully!",text: "You can add more products",icon: "success",});
+                arrpic.push($("#img"+n).attr("src"));
+                arrn.push($("#pn"+n).text());
+                arrprice.push($("#pr"+n).text());
+                arrdprice.push($("#dp"+n).text());
+            }
+
+            else
+            {
+                i--;
+                 $(this).text("Add to Cart");
+                $(this).removeClass("btn btn-success");
+                $(this).addClass("btn btn-danger");
+                swal({title: "Product Deleted",icon: "warning",buttons: true,dangerMode: true,});
+
+                arrpic=$.grep(arrpic,function(value){
+                    return value !=$("#img"+n).attr("src");
+                });
+                arrn=$.grep(arrn,function(value){
+                    return value !=$("#pn"+n).text();
+                });
+                arrprice=$.grep(arrprice,function(value){
+                    return value !=$("#pr"+n).text();
+                });
+                arrdprice=$.grep(arrdprice,function(value){
+                    return value !=$("#dp"+n).text();
+                });
+            }
+            $("#sp").text(i);
+            });
+            //check cart
+            $("#cart").click(function(){
+                var n=$("#sp").text();
+                if(n==0)
+            {
+                swal({
+  title: "Cart is Empty",
+  text: "First Add Any Product into cart then Forward Process!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+            }
+            else{
+                window.location.href="products.html?pics="+arrpic+"&pnames="+arrn+"&price="+arrprice+"&dprice="+arrdprice+"";
+            }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12"
+                style="min-height: 50px; padding: 2%; color: white; background: gray; font-size: 45px;">
+                Wing-Collection List
+
+                <span class="fa fa-shopping-cart" id="cart" style="font-size: 30px; margin-left:950px;
+                ">&nbsp;&nbsp;<span id="sp">0</span></span>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12" id="p">
+
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12"
+                style="min-height: 50px; background: grey; font-size: 30px; color: white; text-align: center;"> Developed & Designed 
+                By MT Intern</div>
+        </div>
+
+        
+    </div>
+</body>
+
+</html>

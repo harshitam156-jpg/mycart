@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="jquery-3.7.1.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+    .nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+    }
+    .content {
+      padding: 20px;
+      min-height: 300px; 
+      text-align: center;
+    }
+    .ufooter {
+      background: black;
+      color: white;
+    }
+    .bfooter {
+      background: grey;
+      color: white;
+    }
+    .ico {
+      margin-right: 10px;
+      font-size: 20px;
+    }
+      .carousel-item img {
+      object-fit: cover;
+      width: 100%;
+      height: 400px;
+    }
+    @media (max-width: 768px) {
+
+    .carousel-item img {
+        height: 250px; 
+      }
+    }
+    .card img {
+      object-fit: cover;
+    }
+    .card {
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+
+  <div class="row bg-secondary text-white p-3">
+    <div class="col-sm-12 d-flex justify-content-between align-items-center">
+      <span style="font-size: 40px; font-weight: bold;">Wing-Collection List</span>
+      <span class="fa fa-shopping-cart fs-3">
+        &nbsp;<span id="sp">0</span>
+      </span>
+    </div>
+  </div>
+
+
+  <div class="row border-top border-bottom">
+    <div class="col-12 py-2 text-center">
+      <a href="cart.html" target="_blank">Cart Management</a>
+            <a href="index.html" target="_blank">Test Management</a> 
+      <a href="form.html" target="_blank">Registration Form</a> 
+      <a href="quiz.html" target="_blank">Validation</a>
+    </div>
+  </div>
+
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+   
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/s.png" class="d-block w-100" style="height:400px;" alt="Slide 1">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Welcome to Wing-Collection</h5>
+          <p>Best Offers Available Here</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../img/v.png" class="d-block w-100" style="height:400px;" alt="Slide 2">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Shop With Us</h5>
+          <p>Trending Collections Just For You</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="../img/image.png" class="d-block w-100" style="height:400px;" alt="Slide 3">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Enjoy Your Shopping</h5>
+          <p>Thanks for Visiting Wing-Collection</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+
+  
+  <div class="content">
+  <div class="row cart my-4">
+    <div class="text-center fs-3 mb-4 p-4">Our <b class="txt-mycolor1">Best Collection  </b> </div>
+
+    <div class="col-sm-3 text-center cardzoom">
+        <div class="card mx-auto " style="width: 18rem;">
+  <img src="../img/best.jpg" class="card-img-top " height="350" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Best Collection</h5>
+      <h6 class="card-subtitle">Collection</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-3 text-center cardzoom">
+           <div class="card mx-auto " style="width: 18rem;">
+  <img src="../img/other.jpg" class="card-img-top" height="350" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"> Best Offers</h5>
+      <h6 class="card-subtitle">Offers</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-3 text-center cardzoom">
+           <div class="card mx-auto " style="width: 18rem;">
+  <img src="../img/brands.jpg" class="card-img-top" height="350" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Best Brands</h5>
+      <h6 class="card-subtitle">Brands</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-3 text-center cardzoom">
+           <div class="card mx-auto " style="width: 18rem;">
+  <img src="../img/offer.jpg" class="card-img-top" height="350" width="100" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Combo clothes</h5>
+      <h6 class="card-subtitle">Clothes</h6>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+    </div>
+</div>
+  </div>
+
+  
+  <div class="row ufooter mt-3 text-center p-4">
+    <div class="col-sm-3">
+      <img src="../img/wing.jpg" style="height:180px;width:200px;" alt="Wing Logo"><hr/>
+      <p>Welcome To Wing-Collection<br>V-mart<br>
+        <i class="fa-solid fa-heart" style="color:pink;"></i>
+        <span style="color:grey;">Thanks for visiting</span>
+        <i class="fa-solid fa-heart" style="color:pink;"></i>
+      </p>
+    </div>
+
+    <div class="col-sm-3">
+      <p class="fs-4">Useful Links</p><hr/>
+      <a style="text-decoration:none;color:white;font-size:18px;" href="/home/">> Home</a><br>
+      <a style="text-decoration:none;color:white;font-size:18px;" href="/Cart Management/">> Cart Management</a><br>
+      <a style="text-decoration:none;color:white;font-size:18px;" href="/Test Management/">>Test Management</a><br>
+      <a style="text-decoration:none;color:white;font-size:18px;" href="/Validation/">> Validation</a><br>
+    </div>
+
+    <div class="col-sm-3">
+      <p class="fs-4">ADDRESS</p><hr/>
+      <p><i class="fa-solid fa-location-dot"></i> Plot No-43, Behind Godmba Thana,<br>
+      Near Munsipuliya pulia Ring Road, Sector 5.<br>
+      Hotline: 1900-123 45678</p>
+      <p><i class="fa-solid fa-envelope"></i> mharshita246@gmail.com</p>
+    </div>
+
+    <div class="col-sm-3">
+      <p class="fs-4">Stay Connected</p><hr/>
+      <i class="fa-brands fa-square-facebook"></i>
+      <i class="fa-brands fa-square-twitter"></i>
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-square-youtube"></i>
+      <i class="fa-brands fa-square-whatsapp"></i>
+    </div>
+  </div>
+
+  
+  <div class="row bfooter py-2 text-center">
+    <div class="col-sm-4">
+      <i class="fa-brands fa-facebook ico"></i>
+      <i class="fa-brands fa-twitter ico"></i>
+      <i class="fa-brands fa-instagram ico"></i>
+      <i class="fa-brands fa-linkedin ico"></i>
+      <i class="fa-brands fa-telegram ico"></i>
+    </div>
+    <div class="col-sm-4">
+      Developed By : <a href="https://harshitapandit.pythonanywhere.com/" target="_blank" style="text-decoration:none;color:white;">Harshita Mishra</a>
+    </div>
+    <div class="col-sm-4">
+      &copy; <a href="https://mtechnologies.org/" target="_blank" style="text-decoration:none;color:white;">Mecatredz Technology</a>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
